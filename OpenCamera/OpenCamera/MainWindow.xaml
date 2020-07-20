@@ -4,9 +4,22 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OpenCamera"
+        xmlns:HalconDotNet="clr-namespace:HalconDotNet;assembly=halcondotnet"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="600">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Margin="5">
+            <HalconDotNet:HWindowControlWPF x:Name="HWCCameraImage" Margin="5,5,5,5" Width="400" Height="200"/>
+        </Grid>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Button x:Name="btnOpenCamera" Content="打开相机" Margin="5" Click="BtnOpenCamera_Click"/>
+            <Button x:Name="btnCollection" Content="开始采集" Margin="5" Click="BtnCollection_Click"/>
+            <Button x:Name="btnCloseCamera" Content="关闭相机" Margin="5" Click="BtnCloseCamera_Click"/>
+        </StackPanel>
     </Grid>
 </Window>
